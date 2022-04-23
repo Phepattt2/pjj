@@ -27,7 +27,7 @@ const GetSearch = asyncHandler(async (req, res) => {
     else{
       var posts = await postSchema.find(req.body).populate('user')
     }
-    console.log(posts , "post length : ",posts.length)
+    console.log("Getsearch")
     res.status(200).json(posts)
   
   }
@@ -40,8 +40,7 @@ const GetSearch = asyncHandler(async (req, res) => {
 // method get
 const SelectedPost = asyncHandler(async (req, res) => {
     var post = await postSchema.findById(req.params.id).populate('user')
-    console.log(post)
-    console.log(post.user.id)
+    console.log('selectedPost')
     res.status(200).json(post)
 })
 
