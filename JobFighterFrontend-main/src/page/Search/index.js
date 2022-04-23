@@ -14,7 +14,6 @@ const API_PROVINCE = 'https://raw.githubusercontent.com/kongvut/thai-province-da
 function Send_data() {
 
   const [provinces,setProvice] = useState([]) 
-
   async function fetchFirstJsonData(){  
     const response = await  axios.post(process.env.REACT_APP_API+'/search')
     JsonData = response.data
@@ -22,7 +21,6 @@ function Send_data() {
     setUsers(JsonData)
     console.log(JsonData.length)
     console.log('id',JsonData[1]._id)
-
   }
 
   async function fetchProvincesName(){  
@@ -56,6 +54,10 @@ function Send_data() {
       e.preventDefault()
     }
   }
+
+
+
+
 
   const handleChange = (e) => {
     console.log(e.target.name ,e.target.value )
