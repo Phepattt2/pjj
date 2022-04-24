@@ -28,30 +28,29 @@ const GetSearch = asyncHandler(async (req, res) => {
       var posts = await postSchema.find(req.body).populate('user')
     }
     console.log("Getsearch")
-    res.status(200).json(posts)
+    res.json(posts)
   
   }
   catch(err){
       console.log('Getsearch is error!')
-      
     } 
 })
 
 // method get
 const SelectedPost = asyncHandler(async (req, res) => {
-    var post = await postSchema.findById(req.params.id).populate('user')
+    var post = await postSchema.findById(req.params.id)
     console.log('selectedPost')
-    res.status(200).json(post)
+    res.json(post)
 })
 
 const SubmitJob = asyncHandler(async (req, res) => {
-  var post = await postSchema.findById(req.params.id ).populate('user')
-  console.log(post.user.id) 
-
-  var post2 = await postSchema.findByIdAndUpdate(req.params.id , {$push:{'userSubmit':post.user.id}} )
-  console.log(post2) 
+  var post = await postSchema.findById(req.params.id )
+  console.log(post.user._id) 
+  console.log('post : ',post) 
+  var post2 = await postSchema.findByIdAndUpdate(req.params.id , {$push:{'userSubmit':post.user._id}} ).populate('user').populate('userSubmit')
+  console.log('post2 :',post2) 
   
-res.status(200).json(post2)
+res.json(post2)
 })
 
   module.exports = {GetSearch,SelectedPost,SubmitJob}

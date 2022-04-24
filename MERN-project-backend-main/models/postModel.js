@@ -1,5 +1,7 @@
 
+
 const mongoose = require('mongoose')
+
 const postSchema = mongoose.Schema(
   { 
     // user ID เจ้าของ Post
@@ -24,13 +26,14 @@ const postSchema = mongoose.Schema(
     enable: Boolean,
     companyAddress : String,
     boost: Boolean,     // boost post
-    userSubmit : [String]
+    userSubmit : [mongoose.Schema.Types.ObjectId]
     
     
   },
   {
     timestamps: true,
   }
+ 
 )
 
 module.exports = mongoose.model('Post', postSchema)

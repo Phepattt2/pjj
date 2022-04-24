@@ -44,7 +44,6 @@ function Send_data() {
     companyName : '' ,
     boost : '',
     // image file test
-    img : ''
   })
 
   const isNumberInput =(e)=>{
@@ -69,7 +68,7 @@ function Send_data() {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    let keyV = ['college' ,'program','faculty','jobType' ,'wageMin' ,'wageMax' ,'address' ,'boost' ,'companyName','img']
+    let keyV = ['college' ,'program','faculty','jobType' ,'wageMin' ,'wageMax' ,'address' ,'boost' ,'companyName']
     for (var i =0 ; i < keyV.length ;i++){
       if (value[keyV[i]] === '' || value[keyV[i]] === 0){
         delete value[keyV[i]]
@@ -105,7 +104,7 @@ function Send_data() {
     ) /* สมมติอยู่ในหน้าที่ 6 ก็เเสดงว่าเราเห็นผู้ใช้มาเเล้ว 18 คน , ต่อไปก็หน้าที่ 7 คือหน้าที่ต้องการอันดับเเรก จึงเปนตัวเเปรนี้ + หน้าที่เยี่ยมชมรวมถึงจน.ผู้ใช้ต่อหน้า หน้าที่ 6 มี item 18 ซึ่ง pagesVisited = 18 + 3 */
     .map((users,index) => {
       return (
-        <a href= {`/submitjob/${users._id}`} class="text-decoration-none">
+        <a href= {`/submitjob/?id=${users._id}`} class="text-decoration-none">
           <div className="">
             {/* ผลการค้นหา ที่เเสดง card ออกมาเป็นบล็อคๆ*/}
             <div className="w-3/4 w-100 h-55 rounded-xl bg-white drop-shadow-md p-2 my-4 font-sans">

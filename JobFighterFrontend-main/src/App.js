@@ -43,7 +43,7 @@ function App(){
           <Route path="/aboutus" element={<Aboutus/>} />
           <Route path="/searchresult" element={<Searchresult/>} />
           <Route path="/postjob" element={<PostJob/>} />
-          <Route path="/submitjob/:id" element={<SubmitJob/>} />
+          <Route path="/submitjob/" element={<SubmitJob/>} />
 
           </Route>
         </Routes>
